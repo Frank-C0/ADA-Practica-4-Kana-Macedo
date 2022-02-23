@@ -64,8 +64,8 @@ public class Graph<E> {
 		}
 		distancias[0]=0;
 		
-		for(int N_Iteraciones = 0;N_Iteraciones<listNodes.size();N_Iteraciones++) {
-			System.out.println("\nPaso "+(N_Iteraciones+1));
+		for(int N_Iteraciones = 1;N_Iteraciones<listNodes.size();N_Iteraciones++) {
+			System.out.println("\nPaso "+(N_Iteraciones));
 			Stack<Node<E>> nodosCapaSiguiente = new Stack<Node<E>>();
 			while(!nodosCapaN.isEmpty()) {
 				Node<E> nodoActual = nodosCapaN.pop();
@@ -110,18 +110,3 @@ public class Graph<E> {
 	}
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
