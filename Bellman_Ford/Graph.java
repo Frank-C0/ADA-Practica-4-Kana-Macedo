@@ -67,9 +67,14 @@ public class Graph<E> {
 		for(int N_Iteraciones = 1;N_Iteraciones<listNodes.size();N_Iteraciones++) {
 			System.out.println("\nPaso "+(N_Iteraciones));
 			Stack<Node<E>> nodosCapaSiguiente = new Stack<Node<E>>();
+			ArrayList<Node<E>> temp = new ArrayList<Node<E>>();
 			while(!nodosCapaN.isEmpty()) {
 				Node<E> nodoActual = nodosCapaN.pop();
+				
 				for (int i = 0; i < nodoActual.getNumeroDeVecinos(); i++) {
+					if(!temp.contains(nodoActual.getVecino(i))) {
+						temp.add(nodoActual.getVecino(i));
+					
 						int indexVecino = indexOf(nodoActual.getVecino(i));
 						int indexNodoActual = indexOf(nodoActual);
 						if(distancias[indexVecino] > distancias[indexNodoActual]+nodoActual.getDistanciaDelVecinoI(i)) {
@@ -82,7 +87,7 @@ public class Graph<E> {
 						if(!nodosCapaSiguiente.contains(nodoActual.getVecino(i))) {
 							nodosCapaSiguiente.push(nodoActual.getVecino(i));
 						}
-					
+					}
 				}
 			}
 			
